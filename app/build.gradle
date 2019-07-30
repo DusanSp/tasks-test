@@ -38,6 +38,21 @@ task ktlint(type: JavaExec, group: "verification") {
 }
 check.dependsOn ktlint
 
+//my task
+//task detektCheck(type: JavaExec) {
+//    main = "io.gitlab.arturbosch.detekt.cli.Main"
+//    def input = "$projectDir/src/main/java"
+//    def config = "$rootDir/my-submodule/detekt-ruleset.yml"
+//    def filters = ".*test.*,.*/resources/.*,.*/tmp/.*"
+//    def output = "$buildDir/reports/detekt"
+//    def outputName = "detekt-report"
+//    def params = [ '-i', input, '-c', config, '-f', filters, '-o', output, '-on', outputName]
+//    println("PARAMS = $params") //to make sure the path is right
+//    args(params)
+//}
+
+//check.dependsOn detektCheck
+
 task ktlintFormat(type: JavaExec, group: "formatting") {
     description = "Fix Kotlin code style deviations."
     main = "com.pinterest.ktlint.Main"
@@ -81,3 +96,5 @@ dependencies {
     // just add them to the classpath (ktlint 'groupId:artifactId:version') and
     // ktlint will pick them up
 }
+
+
